@@ -1,17 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import Header from "./header";
-import Content from "./content";
-import Sidebar from "./sidebar";
+import Header from "./components/Header";
+import Profile from "./components/Profile";
+import Navbar from "./components/Navbar";
 
 
 const App = () => {
   return (
       <div className='app-wrapper'>
           <Header />
-          <Sidebar/>
-          <Content/>
+          <Navbar />
+          <Profile />
       </div>
   );
 }

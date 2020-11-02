@@ -1,0 +1,26 @@
+.nav {
+    grid-area: n;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    color: black;
+}
+
+.nav_menu {
+
+}
+
+.nav ul {
+    line-height: 40px;
+    padding: 0 0 0 20px;
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.item {
+text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.item.active {
+    color: gold;
+}
