@@ -1,7 +1,7 @@
 .nav {
     grid-area: n;
+    height: 230px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    color: black;
 }
 
 .nav_menu {
@@ -17,10 +17,11 @@
 
 .item {
 text-decoration: none;
-    color: black;
+    color: lightslategray;
     font-weight: 500;
+    transition: 0.3s;
 }
 
 .item.active {
-    color: gold;
+    color: black;
 }
