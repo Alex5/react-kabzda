@@ -14,8 +14,8 @@ const App = (props) => {
 
     return (
         <BrowserRouter>
+            <Header/>
             <div className='app-wrapper'>
-                <Header/>
                 <Navbar/>
                 <div className="app-wrapper-content">
                     <Route path={'/messages'} render={() => (

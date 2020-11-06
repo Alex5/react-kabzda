@@ -6,9 +6,9 @@ import Dialogs from "./Dialogs/Dialogs";
 const Messages = (props) => {
 
     return (
-        <div>
+
             <Dialogs messageData={props.state}/>
-        </div>
+
     )
 }
 

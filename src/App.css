@@ -3,6 +3,7 @@ a{
 }
 
 .app-wrapper {
+
     margin: 0 auto;
     display: grid;
     grid-template-areas: "h h" "n c";
@@ -13,6 +14,7 @@ a{
 }
 
 .app-wrapper-content {
+
     grid-area: c;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
