@@ -1,0 +1,8 @@
+.dialogs__dialog .active {
+    color: black;
+}
+
+.dialogItem {
+    transition: 0.3s;
+    color: lightslategray;
+}
