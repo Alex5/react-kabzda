@@ -3,7 +3,12 @@ import styles from "./Messages.module.css";
 
 const Messages = (props) => {
 
+    let newMessage = React.createRef()
 
+    let addPost = () => {
+        let messageText = newMessage.current.value;
+        alert(messageText)
+    }
 
     return (
         <div className={styles.chat}>
@@ -189,10 +194,10 @@ const Messages = (props) => {
                             <div className="message-content">{props.message}</div>
                         </div>
                     </div>
-                    <div className={styles.messages__inputarea}>
+                    <div className={styles.messages__area__input}>
                         <h5>Сообщение</h5>
-                        <textarea placeholder={'Введите текст сообщения'}></textarea>
-                        <button>Отправить</button>
+                        <textarea ref={newMessage} placeholder={'Введите текст сообщения'}></textarea>
+                        <button onClick={ addPost }>Отправить</button>
                     </div>
                 </div>
             </div>

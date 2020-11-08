@@ -1,7 +1,28 @@
 .posts__area {
+
     padding: 15px;
+}
+
+.posts__area__input {}
+
+.posts__area__textarea {
+
+    margin-bottom: 15px;
+    margin-top: 15px;
+    outline: none;
+    width: 100%;
+    min-height: 50px;
+    max-height: 500px;
+    overflow: hidden;
+    resize: vertical;
+    border-radius: 10px;
+}
+
+.posts__area__input textarea {
+
 }
 
 .item {
     background-color: gold;
 }
+
