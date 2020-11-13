@@ -1,8 +1,18 @@
+.dialogs__dialog {
+    padding: 10px;
+    border-radius: 10px;
+}
+
 .dialogs__dialog .active {
-    color: black;
+    color: steelblue;
+}
+
+.dialogs__dialog:hover {
+    background-color: whitesmoke;
+    transition: 0.3s;
 }
 
 .dialogItem {
-    transition: 0.3s;
-    color: lightslategray;
+    color: #222831;
+    transition: 0.2s;
 }
