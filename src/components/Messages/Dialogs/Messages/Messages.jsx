@@ -4,11 +4,10 @@ import MessageItem from "./MessageItem/MessageItem";
 import {
     addNewMessage,
     updateNewMessageTextActionCreator,
-} from "../../../../State/Redux/State";
+} from "../../../../State/Redux/dialogs-reducer";
 
 
 const Messages = (props) => {
-
 
     let messageElements = props.state.messageData.messagesArray.map(m => (
         <MessageItem dispatch={props.dispatch} message={m.message}/>))
