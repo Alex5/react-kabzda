@@ -3,7 +3,7 @@ import React from 'react';
 import Header from "./components/Header/Header";
 import Profile from "./components/Profile/Profile";
 import Navbar from "./components/Sidebar/Navbar";
-import Messages from "./components/Messages/Messages";
+import MessagesArea from "./components/Messages/MessagesArea";
 import Music from "./components/Music/Music";
 import News from "./components/News/News";
 import Setting from "./components/Setting/Setting";
@@ -14,16 +14,11 @@ const App = (props) => {
         <div className="page">
             <Header/>
             <div className='app-wrapper'>
-                <Navbar/>
+                <Navbar state={props.state}/>
                 <div className="app-wrapper-content">
                     <Route path={'/messages'} render={() => (
-                        <Messages dispatch={props.dispatch} state={props.state}/>)}/>
-                    <Route path={'/profile'}
-                           render={() => (
-                               <Profile state={props.state} dispatch={props.dispatch} newPostText={props.newPostText}
-                               />
-                           )}/>
-
+                        <MessagesArea store={props.store}/>)}/>
+                    <Route path={'/profile'} render={() => (<Profile store={props.store}/>)}/>
                     <Route path={'/news'} render={() => (<News/>)}/>
                     <Route path={'/music'} render={() => (<Music/>)}/>
                     <Route path={'/setting'} render={() => (<Setting/>)}/>

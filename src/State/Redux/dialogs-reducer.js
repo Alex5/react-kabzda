@@ -9,7 +9,7 @@ let initialState = {
             {id: 4, name: 'Desiree Esquivel'}
         ],
         messagesArray: [
-            {id: 1, message: 'Messages from state'},
+            {id: 1, message: 'MessagesArea from state'},
         ],
         newMessageText: "Cowboy from state🤠"
 }

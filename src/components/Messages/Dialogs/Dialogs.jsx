@@ -1,13 +1,13 @@
 import React from "react";
 import styles from './Dialogs.module.css'
 import DialogsItem from "./DialogsItem/DialogsItem";
-import Messages from "./Messages/Messages";
+import MessagesContainer from "./Messages/MessagesContainer";
 
 const Dialogs = (props) => {
 
     let dialogsElements = props.state.messageData.dialogsArray.map( d => (<DialogsItem id={d.id} name={d.name} />) )
 
-    // let messageElements = props.messageData.messagesArray.map( m => (<Messages id={m.id} message={m.message} />) )
+    // let messageElements = props.messageData.messagesArray.map( m => (<MessagesArea id={m.id} message={m.message} />) )
 
     return (
         <div className={styles.dialogs__area}>
@@ -15,10 +15,9 @@ const Dialogs = (props) => {
                 { dialogsElements }
             </div>
             <div className={styles.messages}>
-                <Messages state={props.state} dispatch={props.dispatch}/>
+                <MessagesContainer store={props.store}/>
             </div>
         </div>
-
 
     )
 }

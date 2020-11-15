@@ -24,11 +24,24 @@ let store = {
                 {id: 4, name: 'Desiree Esquivel'}
             ],
             messagesArray: [
-                {id: 1, message: 'Messages from state'},
+                {id: 1, message: 'MessagesArea from state'},
             ],
             newMessageText: "Cowboy from state🤠"
         },
-        sideBar: {},
+        sideBar: {
+            menuItemsArray: [
+                {id:1, menuItemName: 'Profile', activity: true, pathName: "/messages" },
+                {id:2, menuItemName: 'Message', activity: true},
+                {id:3, menuItemName: 'News', activity: true},
+                {id:4, menuItemName: 'Music', activity: true},
+                {id:5, menuItemName: 'Setting', activity: true}
+            ],
+            friendOnlineArray: [
+                {id: 1, online: true},
+                {id: 2, online: true},
+                {id: 3, online: true}
+            ]
+        },
     },
 
     getState() {

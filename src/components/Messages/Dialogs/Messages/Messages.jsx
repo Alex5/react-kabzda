@@ -1,26 +1,21 @@
 import React from "react";
 import styles from "./Messages.module.css";
 import MessageItem from "./MessageItem/MessageItem";
-import {
-    addNewMessage,
-    updateNewMessageTextActionCreator,
-} from "../../../../State/Redux/dialogs-reducer";
-
 
 const Messages = (props) => {
 
-    let messageElements = props.state.messageData.messagesArray.map(m => (
+    let messageElements = props.messagesArray.map(m => (
         <MessageItem dispatch={props.dispatch} message={m.message}/>))
 
     let newMessage = React.createRef()
 
-    let addMessage = () => {
-        props.dispatch( addNewMessage() )
+    let onAddMessage = () => {
+        props.addMessage();
     }
 
     let onMessageChange = () => {
         let messageText = newMessage.current.value;
-        props.dispatch(updateNewMessageTextActionCreator(messageText))
+        props.onMessageChange(messageText);
     }
 
     return (
@@ -41,9 +36,9 @@ const Messages = (props) => {
                 </div>
                 <div className={styles.messages__area__input}>
                         <textarea onChange={onMessageChange} ref={newMessage}
-                                  value={props.state.messageData.newMessageText}
+                                  value={props.newMessageText}
                                   placeholder={'Enter message text'}/>
-                        <button onClick={addMessage}>Отправить</button>
+                        <button onClick={onAddMessage}>Отправить</button>
                 </div>
             </div>
         </div>
