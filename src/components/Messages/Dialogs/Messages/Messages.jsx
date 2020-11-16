@@ -10,8 +10,10 @@ const Messages = (props) => {
     let newMessage = React.createRef()
 
     let onAddMessage = () => {
-        props.addMessage();
+        props.addMessage()
     }
+
+    debugger
 
     let onMessageChange = () => {
         let messageText = newMessage.current.value;

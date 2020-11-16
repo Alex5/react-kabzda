@@ -10,15 +10,21 @@ import Setting from "./components/Setting/Setting";
 import {Route} from "react-router-dom";
 
 const App = (props) => {
+
+
+
     return (
+
+
+
         <div className="page">
             <Header/>
             <div className='app-wrapper'>
                 <Navbar state={props.state}/>
                 <div className="app-wrapper-content">
                     <Route path={'/messages'} render={() => (
-                        <MessagesArea store={props.store}/>)}/>
-                    <Route path={'/profile'} render={() => (<Profile store={props.store}/>)}/>
+                        <MessagesArea state={props.state}/>)}/>
+                    <Route path={'/profile'} render={() => (<Profile />)}/>
                     <Route path={'/news'} render={() => (<News/>)}/>
                     <Route path={'/music'} render={() => (<Music/>)}/>
                     <Route path={'/setting'} render={() => (<Setting/>)}/>

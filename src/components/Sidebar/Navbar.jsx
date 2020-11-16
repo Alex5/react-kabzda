@@ -3,11 +3,7 @@ import styles from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import Friend from "./Friends/Friends";
 
-const Navbar = (props) => {
-
-
-    let menuItemElement = props.state.sideBar.menuItemsArray.map( menuItems => (<li>{menuItems.menuItemName}</li>))
-
+const Navbar = () => {
 
     return (
         <nav className={styles.nav}>
