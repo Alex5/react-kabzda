@@ -74,7 +74,7 @@
     background-color: white;
 }
 
-.messages__area__input textarea {
+/*.messages__area__input textarea {
     display: flex;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     outline: none;
@@ -83,11 +83,4 @@
     width: 100%;
     resize: none;
     border-radius: 10px;
-}
-
-.messages__area__input button {
-    height: 35px;
-    width: 80px;
-    margin-right: 20px;
-    border-radius: 15px;
-}
+}*/

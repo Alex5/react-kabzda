@@ -1,5 +1,28 @@
+.post__header {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    padding-bottom: 15px;
+}
+
+.post__body {
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    margin-bottom: 15px;
+    padding: 5px;
+}
+
+.post__footer {
+    display: flex;
+    justify-content: flex-end;
+}
+
 .item {
     display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    margin-bottom: 15px;
+    border-radius: 10px;
 }
 
 .item img {

@@ -2,32 +2,39 @@ import React from "react";
 import styles from "./Messages.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 
+
+//antd trash
+import 'antd/dist/antd.css';
+import {Button} from "antd";
+import TextArea from "antd/es/input/TextArea";
+import Avatar from "antd/es/avatar";
+import UserOutlined from "@ant-design/icons/lib/icons/UserOutlined";
+
+
 const Messages = (props) => {
 
     let messageElements = props.messagesArray.map(m => (
-        <MessageItem dispatch={props.dispatch} message={m.message}/>))
+        <MessageItem dispatch={props.dispatch} id={m.id} message={m.message} name={m.name} date={m.date} />))
 
     let newMessage = React.createRef()
 
-    let onAddMessage = () => {
-        props.addMessage()
-    }
 
-    debugger
+    let onAddMessage = () => {
+        props.addMessage();
+    }
 
     let onMessageChange = () => {
         let messageText = newMessage.current.value;
         props.onMessageChange(messageText);
     }
 
+
     return (
         <div className={styles.chat}>
             <div className={styles.scrollbar__container}>
                 <div className={styles.scrollbar__message__header}>
                     <div className={styles.header__message__avatar}>
-                        <img className="avatar"
-                             src="https://image.flaticon.com/icons/png/512/194/194938.png"
-                             alt=""/>
+                        <Avatar size="large" icon={<UserOutlined />} />
                         <div><h4>Anika Lyons</h4>
                             <div className="online">Online</div>
                         </div>
@@ -36,16 +43,21 @@ const Messages = (props) => {
                 <div className={styles.chat__body}>
                     {messageElements}
                 </div>
-                <div className={styles.messages__area__input}>
-                        <textarea onChange={onMessageChange} ref={newMessage}
-                                  value={props.newMessageText}
-                                  placeholder={'Enter message text'}/>
-                        <button onClick={onAddMessage}>Отправить</button>
+                <div style={{display: 'flex', alignItems: 'center'}}>
+                    <TextArea
+                        onChange={onMessageChange} ref={newMessage}
+                        value={props.newMessageText}
+                        placeholder="Enter message here"
+                        autoSize={{minRows: 2, maxRows: 6}}
+                    />
+                    <Button onClick={onAddMessage} type="primary">Send</Button>
                 </div>
             </div>
         </div>
 
     )
 }
+
+
 
 export default Messages;

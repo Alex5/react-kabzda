@@ -3,23 +3,33 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
 let initialState = {
     postArray: [
-        {id: 1, name: "John Week", message: "Hi world", like_counts: 12}
+        {
+            id: 1,
+            name: "John Week",
+            message: "Integer nec lacus eget erat ullamcorper dictum dignissim ac ex. Proin vitae purus quis urna suscipit sagittis. Nullam iaculis malesuada enim eget viverra. Fusce quis justo sit amet libero bibendum molestie sit amet commodo lacus. Praesent cursus sodales tellus, vel congue ex porttitor sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque id lacus nec purus hendrerit venenatis. Ut suscipit diam a enim maximus commodo. In viverra rhoncus erat, id vulputate dolor dignissim in. Pellentesque accumsan nulla elit, et sodales sem iaculis sed. Nulla lectus risus, auctor quis luctus sed, commodo tincidunt nulla. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent convallis, dolor ut scelerisque faucibus, tortor quam pharetra mauris, et fringilla purus ante at lectus. Nulla sollicitudin diam gravida ligula interdum, vitae accumsan metus condimentum. Quisque consectetur libero vel gravida vulputate. Suspendisse et ultrices risus.",
+            like_counts: 12
+        }
     ],
-        newPostText: "Cowboy from state🤠"
+    newPostText: "Cowboy from state🤠"
 }
-
 const profileReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_POST:
             let newPost = {
                 id: 6, name: "John Week", message: state.newPostText, like_counts: 0
             };
-            state.postArray.push(newPost);
-            state.newPostText = '';
-            return state;
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
+            const stateCopy = {...state}
+            stateCopy.postArray = [...state.postArray];
+            stateCopy.postArray.push(newPost)
+            stateCopy.newPostText = '';
+            return stateCopy;
+
+
+        case UPDATE_NEW_POST_TEXT: {
+            const stateCopy = {...state}
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
         default:
             return state;
     }

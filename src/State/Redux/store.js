@@ -8,7 +8,7 @@ import sidebarReducer from "./sidebar-reducer";
 
 let store = {
 
-    _state: {
+/*    _state: {
         profileData: {
             postArray: [
                 {id: 1, name: "John Week", message: "Hi world", like_counts: 12},
@@ -42,7 +42,7 @@ let store = {
                 {id: 3, online: true}
             ]
         },
-    },
+    },*/
 
     getState() {
         return this._state

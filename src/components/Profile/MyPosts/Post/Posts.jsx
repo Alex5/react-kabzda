@@ -4,13 +4,20 @@ import styles from './Post.module.css'
 const Post = (props) => {
     return (
         <div className={styles.item}>
-            <img
-                src="https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg"
-                alt=""/>
-            <div>
+            <div className={styles.post__header}>
+                <img
+                    src="https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg"
+                    alt=""/>
                 <h3>{props.name}</h3>
+            </div>
+
+            <div className={styles.post__body}>
                 <p>{props.message}</p>
-                <span>like: {props.like_counts}</span>
+
+            </div>
+            <div className={styles.post__footer}>
+                <button>Reply</button>
+                <button>like: {props.like_counts}</button>
             </div>
         </div>
     )

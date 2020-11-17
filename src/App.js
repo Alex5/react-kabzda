@@ -14,9 +14,6 @@ const App = (props) => {
 
 
     return (
-
-
-
         <div className="page">
             <Header/>
             <div className='app-wrapper'>

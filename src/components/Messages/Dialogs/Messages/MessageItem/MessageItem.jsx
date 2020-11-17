@@ -1,5 +1,7 @@
 import React from "react";
 import styles from "../Messages.module.css";
+import Avatar from "antd/es/avatar";
+import {UserOutlined} from "@ant-design/icons";
 
 let MessageItem = (props) => {
 
@@ -7,11 +9,10 @@ let MessageItem = (props) => {
         <div className={styles.messages__message}>
             <div className={styles.message__outgoing__item}>
                 <div className={styles.message__avatar}>
-                    <img className="avatar"
-                         src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png"
-                         alt=""/>
-                    <div>Mirabelle Tow
-                        <div className="time">13-Nov-20</div>
+                    <Avatar size="large" icon={<UserOutlined />} />
+                    <div>
+                        <div>{props.name}</div>
+                        <div className="date">{props.date}</div>
                     </div>
                 </div>
                 <div className="message-content">{props.message}</div>

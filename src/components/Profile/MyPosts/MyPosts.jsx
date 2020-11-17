@@ -17,7 +17,7 @@ const MyPosts = (props) => {
     };
 
     let postElements = props.postArray.map(p => (
-        <Post id={p.id} name={p.name} message={p.message} like_counts={p.like_counts}/>))
+        <Post id={p.id} name={p.name} message={p.message} like_counts={p.like_counts} key={p.id}/>))
 
     return (
         <div className={styles.posts__area}>
