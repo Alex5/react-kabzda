@@ -14,7 +14,7 @@ import UserOutlined from "@ant-design/icons/lib/icons/UserOutlined";
 const Messages = (props) => {
 
     let messageElements = props.messagesArray.map(m => (
-        <MessageItem dispatch={props.dispatch} id={m.id} message={m.message} name={m.name} date={m.date} />))
+        <MessageItem dispatch={props.dispatch} state={props.state} id={m.id} message={m.message} name={m.name} date={m.date} />))
 
     let newMessage = React.createRef()
 
@@ -23,8 +23,8 @@ const Messages = (props) => {
         props.addMessage();
     }
 
-    let onMessageChange = () => {
-        let messageText = newMessage.current.value;
+    let onMessageChange = (e) => {
+        let messageText = e.target.value;
         props.onMessageChange(messageText);
     }
 

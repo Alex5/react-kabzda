@@ -9,7 +9,7 @@ let initialState = {
         {id: 4, name: 'Desiree Esquivel'}
     ],
     messagesArray: [
-        {id: 1, name:"Mirabelle Tow",date: "17-Nov-20", message: 'Message item from state'},
+        {id: 1, name:"Mirabelle Tow",date: "17-Nov-20", message: 'Message item from state'}
     ],
     newMessageText: "Cowboy from state🤠"
 }
@@ -18,7 +18,7 @@ const dialogsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_NEW_MESSAGE:
             let newMessage = {
-                id: 2, message: state.newMessageText
+                id: 2, message: state.newMessageText, name: 'Mirabelle Tow',date: "17-Nov-20"
             };
             return {
                 ...state,
@@ -29,9 +29,9 @@ const dialogsReducer = (state = initialState, action) => {
         case UPDATE_NEW_MESSAGE_TEXT: {
             return {
                 ...state,
-                newMessageText: action.newMText,
+                newMessageText: action.newMText}
             }
-        }
+
         default:
             return state;
     }

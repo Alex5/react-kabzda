@@ -35,9 +35,6 @@ import {connect} from "react-redux";
     )
 }*/
 
-export let state = (state) => {
-}
-
 let mapStateToProps = (state) => {
     return {
         messagesArray: state.messageData.messagesArray,
