@@ -12,7 +12,6 @@ const Navbar = () => {
             <Menu.Item><NavLink activeClassName={styles.active} className={styles.item} to="/profile">Profile</NavLink></Menu.Item>
             <Menu.Item><NavLink activeClassName={styles.active} className={styles.item}
                                 to="/messages">Messages</NavLink></Menu.Item>
-            <Menu.Item><NavLink to={'/users'}>Users</NavLink></Menu.Item>
             <Menu.Item><NavLink activeClassName={styles.active} className={styles.item}
                                 to="/news">News</NavLink></Menu.Item>
             <Menu.Item><NavLink activeClassName={styles.active} className={styles.item}

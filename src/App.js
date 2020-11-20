@@ -11,10 +11,6 @@ import {Route} from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
 
 
-
-
-
-
 const App = (props) => {
 
 
@@ -27,10 +23,10 @@ const App = (props) => {
                      <Route path={'/messages'} render={() => (
                          <MessagesArea state={props.state}/>)}/>
                      <Route path={'/profile'} render={() => (<Profile />)}/>
-                     <Route path={'/users'} render={() => (<UsersContainer />)}/>
                      <Route path={'/news'} render={() => (<News/>)}/>
                      <Route path={'/music'} render={() => (<Music/>)}/>
                      <Route path={'/setting'} render={() => (<Setting/>)}/>
+                     <Route path={'/users'} render={() => (<UsersContainer />)}/>
                  </div>
              </div>
          </div>
