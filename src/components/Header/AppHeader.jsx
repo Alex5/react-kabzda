@@ -1,6 +1,5 @@
 import React from 'react';
 import style from './Header.module.css'
-import { Typography } from 'antd';
 import Title from "antd/lib/typography/Title";
 
 

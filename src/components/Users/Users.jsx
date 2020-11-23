@@ -2,7 +2,6 @@ import React from 'react';
 import {Avatar, Button, List, Pagination} from "antd";
 import * as axios from "axios";
 import userPhoto from '../../assets/images/userPhoto.png'
-import styles from './Users.Module.css'
 
 class Users extends React.Component {
 
