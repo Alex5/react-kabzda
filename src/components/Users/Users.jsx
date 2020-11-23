@@ -37,26 +37,6 @@ class Users extends React.Component {
 
             <div style={{padding: '15px'}}>
 
-                {/*{
-                    (this.props.users.map(u => (<div key={u.id}>
-                            {<div>
-                                <img style={{width: '50px'}} src={u.photos.small != null ? u.photos.small : userPhoto}
-                                     alt=""/>
-                            </div>}
-                            <div>{u.name}</div>
-                            <div>
-                                {u.followed
-                                    ? <Button type="primary" onClick={() => {
-                                        this.props.unfollow(u.id)
-                                    }}>Unfollow</Button>
-                                    : <Button onClick={() => {
-                                        this.props.follow(u.id)
-                                    }}>Follow</Button>}
-                            </div>
-                        </div>))
-                    )
-                }*/}
-
                 <List
                     itemLayout="horizontal"
                     dataSource={this.props.users}
@@ -64,9 +44,9 @@ class Users extends React.Component {
                         <List.Item>
                             <List.Item.Meta
                                 key={u.id}
-                                avatar={<Avatar src={u.photos.small != null ? u.photos.small : userPhoto}/>}
+                                avatar={<Avatar size="large" src={u.photos.small != null ? u.photos.small : userPhoto}/>}
                                 title={<a href="">{u.name}</a>}
-                                status={u.status}
+                                description={'Status: ' + u.status}
                             />
                             <div>
                                 {u.followed
