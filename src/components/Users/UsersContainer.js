@@ -79,7 +79,7 @@ let mapStateToProps = (state) => {
             dispatch(followAC(userId))
         },
         unfollow: (userId) => {
-            dispatch(unfollowAC(userId))
+            dispatch(unfollowAC(usasderId))
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users))
