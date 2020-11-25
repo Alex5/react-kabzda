@@ -10,9 +10,18 @@ h1,h2,h3,h4,h5,p {
 }
 
 .profile__avatar img {
-    height: 100px;
+    height: 160px;
+    width: 160px;
     border-radius: 10px;
     margin-right: 15px;
+}
+
+.profile__content {
+    display: flex;
+}
+
+.profile__content_body {
+    width: 100%;
 }
 
 .profile__body {
@@ -21,5 +30,6 @@ h1,h2,h3,h4,h5,p {
 
 .profile__body__info {
     display: grid;
-    grid-template-columns: 6fr 6fr;
+    grid-template-columns: 50% 50%;
+    width: 100%;
 }
