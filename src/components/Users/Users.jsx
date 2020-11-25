@@ -1,81 +1,53 @@
 import React from 'react';
-import {Avatar, Button, List, Pagination} from "antd";
-import * as axios from "axios";
+import {Avatar, Button, List, PageHeader, Pagination} from "antd";
 import userPhoto from '../../assets/images/userPhoto.png'
+import Preloader from "../common/preloader/Preloader";
+import {NavLink} from "react-router-dom";
 
-class Users extends React.Component {
+const Users = (props) => {
 
-    componentDidMount() {
+    return (
+        <div style={{padding: '15px'}}>
 
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.setUsers(response.data.items);
-                this.props.setTotalUsersCount(response.data.totalCount);
-            });
-    }
-
-    onPageChanged = (pageNumber) => {
-        this.props.setCurrentPage(pageNumber)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`)
-            .then(response => {
-                this.props.setUsers(response.data.items)
-            });
-    }
-
-    render() {
-
-        let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
-
-        let pages = [];
-
-        for (let i = 1; i <= pageCount; i++) {
-            pages.push(i)
-        }
-
-
-        return (
-
-            <div style={{padding: '15px'}}>
-
-                <List
-                    itemLayout="horizontal"
-                    dataSource={this.props.users}
-                    renderItem={u => (
-                        <List.Item>
+            <List
+                itemLayout="horizontal"
+                dataSource={props.users}
+                renderItem={u => (
+                    <List.Item>
                             <List.Item.Meta
                                 key={u.id}
-                                avatar={<Avatar size="large" src={u.photos.small != null ? u.photos.small : userPhoto}/>}
-                                title={<a href="">{u.name}</a>}
+                                avatar={
+                                    <NavLink to={'/profile/' + u.id}> {<Avatar size="large"
+                                                                               src={u.photos.small != null ? u.photos.small : userPhoto}/>}</NavLink>}
+
+                                title={
+                                    <NavLink to={'/profile/' + u.id}>{u.name}</NavLink>}
                                 description={'Status: ' + u.status}
                             />
-                            <div>
-                                {u.followed
-                                    ? <Button type="primary" onClick={() => {
-                                        this.props.unfollow(u.id)
-                                    }}>Unfollow</Button>
-                                    : <Button onClick={() => {
-                                        this.props.follow(u.id)
-                                    }}>Follow</Button>}
-                            </div>
+                        <div>
+                            {u.followed
+                                ? <Button type="primary" onClick={() => {
+                                    props.unfollow(u.id)
+                                }}>Unfollow</Button>
+                                : <Button onClick={() => {
+                                    props.follow(u.id)
+                                }}>Follow</Button>}
+                        </div>
 
-                        </List.Item>
-                    )}
-                />
-               {/* <div>
+                    </List.Item>
+                )}
+            />
+            {/* <div>
                     {pages.map(p => {
                         return <span onClick={() => {this.onPageChanged(p);}} className={this.props.currentPage ===  p && styles.selectedPage}>{p}</span>
                     })}
                 </div>*/}
 
-                <Pagination onChange={this.onPageChanged} defaultCurrent={this.props.currentPage} total={this.props.totalUsersCount}
-                            defaultPageSize={this.props.pageSize}/>
+            <Pagination onChange={props.onPageChanged} defaultCurrent={props.currentPage} total={props.totalUsersCount}
+                        defaultPageSize={props.pageSize}/>
 
-            </div>
-
-        )
-
-    }
-
+        </div>
+    )
 }
 
 
