@@ -22,8 +22,9 @@ const ProfileInfo = (props) => {
                 <div className={styles.profile__avatar}>
                     <img
                         src={props.profile.photos.large}
-                        alt="Jon Snow"/>
+                        alt="No photo"/>
                 </div>
+                <div>{props.isAuth ? "Followed" : "Unfollowed"}</div>
                 <div className={styles.profile__content_body}>
                     <div className={styles.profile__body__info}>
                         <div><h3>Description:</h3></div>
@@ -32,7 +33,11 @@ const ProfileInfo = (props) => {
                     <div className={styles.profile__body__info}>
                         <div><h3>Contacts:</h3></div>
                         <div>
-                            <div><a href={props.profile.contacts.facebook}></a></div>
+                            <div><a
+                                href={props.profile.contacts.facebook}>
+                                {props.profile.contacts.facebook ? `Facebook: ${props.profile.contacts.facebook}` : null}
+                            </a>
+                            </div>
                             <div>{props.profile.contacts.website}</div>
                             <div><a href={props.profile.contacts.vk}>{props.profile.contacts.vk}</a></div>
                             <div>{props.profile.contacts.twitter}</div>

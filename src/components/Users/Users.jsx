@@ -1,8 +1,9 @@
 import React from 'react';
-import {Avatar, Button, List, PageHeader, Pagination} from "antd";
+import {Avatar, Button, List, Pagination, Spin} from "antd";
 import userPhoto from '../../assets/images/userPhoto.png'
-import Preloader from "../common/preloader/Preloader";
 import {NavLink} from "react-router-dom";
+import {usersApi} from "../../api/api";
+
 
 const Users = (props) => {
 
@@ -14,34 +15,52 @@ const Users = (props) => {
                 dataSource={props.users}
                 renderItem={u => (
                     <List.Item>
-                            <List.Item.Meta
-                                key={u.id}
-                                avatar={
-                                    <NavLink to={'/profile/' + u.id}> {<Avatar size="large"
-                                                                               src={u.photos.small != null ? u.photos.small : userPhoto}/>}</NavLink>}
+                        <List.Item.Meta
+                            key={u.id}
+                            avatar={
+                                <NavLink to={'/profile/' + u.id}> {<Avatar size="large"
+                                                                           src={u.photos.small != null ? u.photos.small : userPhoto}/>}</NavLink>}
 
-                                title={
-                                    <NavLink to={'/profile/' + u.id}>{u.name}</NavLink>}
-                                description={'Status: ' + u.status}
-                            />
+                            title={
+                                <NavLink to={'/profile/' + u.id}>{u.name}</NavLink>}
+                            description={'Status: ' + u.status}
+                        />
                         <div>
                             {u.followed
-                                ? <Button type="primary" onClick={() => {
-                                    props.unfollow(u.id)
-                                }}>Unfollow</Button>
-                                : <Button onClick={() => {
-                                    props.follow(u.id)
-                                }}>Follow</Button>}
-                        </div>
+                                ?
+                                    <Button loading={props.followingInProgress} type="primary" onClick={() => {
+                                        props.toggleIsFollowingProgress(true)
+                                        usersApi.unfollow(u.id).then(data => {
+                                            if (data.resultCode === 0) {
+                                                props.unfollow(u.id)
+                                            }
+                                            props.toggleIsFollowingProgress(false)
+                                        });
+                                    }}>Unfollow</Button>
 
+
+                                : <Spin spinning={props.followingInProgress} delay={500}>
+                                    <Button onClick={() => {
+                                        props.toggleIsFollowingProgress(true)
+                                        usersApi.follow(u.id).then(data => {
+                                            if (data.resultCode === 0) {
+                                                props.follow(u.id)
+                                            }
+                                            props.toggleIsFollowingProgress(false)
+                                        });
+                                    }}>Follow</Button>
+                                </Spin>
+                            }
+
+                        </div>
                     </List.Item>
                 )}
             />
             {/* <div>
-                    {pages.map(p => {
-                        return <span onClick={() => {this.onPageChanged(p);}} className={this.props.currentPage ===  p && styles.selectedPage}>{p}</span>
-                    })}
-                </div>*/}
+                                {pages.map(p => {
+                                return <span onClick={() => {this.onPageChanged(p);}} className={this.props.currentPage ===  p && styles.selectedPage}>{p}</span>
+                                })}
+                                </div>*/}
 
             <Pagination onChange={props.onPageChanged} defaultCurrent={props.currentPage} total={props.totalUsersCount}
                         defaultPageSize={props.pageSize}/>

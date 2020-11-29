@@ -20,3 +20,17 @@
 .header__logo img {
     height: 55px;
 }
+
+.login__area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    width: 75px;
+    color: white;
+}
+
+.login__area:hover {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.09);
+}
