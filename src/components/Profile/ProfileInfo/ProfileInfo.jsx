@@ -2,6 +2,9 @@ import React from 'react';
 import styles from './ProfileInfo.module.css'
 import Preloader from "../../common/preloader/Preloader";
 import {PageHeader} from "antd";
+import {Redirect, Route} from "react-router";
+import userPhoto from "../../../assets/images/userPhoto.png"
+import Profile from "../Profile";
 
 const ProfileInfo = (props) => {
 
@@ -9,22 +12,19 @@ const ProfileInfo = (props) => {
         return <Preloader/>
     }
 
+    // if (!props.isAuth) return <Redirect to={'/login' ? <Profile/> : `/login`}/>
+
+
     return (
         <div className={styles.content}>
-            <PageHeader
-                className="site-page-header"
-                onBack={() => {
-                }}
-                title={props.profile.fullName}
-                subTitle=""
-            />
+            <div><h1>{props.profile.fullName}</h1></div>
             <div className={styles.profile__content}>
+
                 <div className={styles.profile__avatar}>
-                    <img
-                        src={props.profile.photos.large}
-                        alt="No photo"/>
+
+                    <img src={props.profile.photos.large ? props.profile.photos.large : userPhoto} alt=""/>
                 </div>
-                <div>{props.isAuth ? "Followed" : "Unfollowed"}</div>
+
                 <div className={styles.profile__content_body}>
                     <div className={styles.profile__body__info}>
                         <div><h3>Description:</h3></div>

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import {Badge, Menu} from "antd";
+import Profile from "../Profile/Profile";
 
 
 const Navbar = () => {
@@ -35,8 +36,6 @@ const Navbar = () => {
                 <NavLink activeClassName={styles.active} className={styles.item} to="/setting">Setting</NavLink>
             </Menu.Item>
 
-            <div className={styles.nav_menu}>
-            </div>
         </Menu>
     )
 }

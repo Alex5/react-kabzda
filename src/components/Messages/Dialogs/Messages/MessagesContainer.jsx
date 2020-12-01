@@ -9,6 +9,7 @@ let mapStateToProps = (state) => {
     return {
         messagesArray: state.messageData.messagesArray,
         newMessageText: state.messageData.newMessageText,
+        isAuth: state.authData.isAuth
     }
 }
 

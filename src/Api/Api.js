@@ -31,7 +31,16 @@ export const usersApi = {
     follow(id) {
       return instance.post(`follow/${id}`)
           .then(response => response.data)
-    }
+    },
 
+}
+
+export const authApi = {
+    checkAuth () {
+        return (
+            instance.get(`auth/me`)
+                .then(response => response.data)
+        )
+    }
 }
 

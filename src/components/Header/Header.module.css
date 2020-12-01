@@ -11,21 +11,20 @@
 }
 
 .header__area {
-
     display: flex;
     align-items: center;
     width: 900px;
 }
 
 .header__logo img {
-    height: 55px;
+    height: 35px;
 }
 
 .login__area {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 55px;
+    height: 45px;
     width: 75px;
     color: white;
 }

@@ -1,4 +1,4 @@
-import {usersApi} from "../../api/api";
+import {usersApi} from "../../Api/Api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -69,8 +69,7 @@ export const setTotalUsersCount = (totalCount) => ({type: SET_TOTAL_USERS_COUNT,
 export const toggleIsFetching = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching})
 export const toggleIsFollowingProgress = (isFollowing) => ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFollowing})
 
-export const getUsersThunkCreator = (currentPage, pageSize) => {
-    return (dispatch) => {
+export const getUsersThunkCreator = (currentPage, pageSize) => { return (dispatch) => {
         dispatch(toggleIsFetching(true))
         usersApi.getUsers(currentPage, pageSize).then(data => {
             dispatch(toggleIsFetching(false))

@@ -1,11 +1,20 @@
 import React from "react";
-import {Spin} from "antd";
+import {Skeleton} from "antd";
 import styles from './Preloader.module.css'
 
 const Preloader = () => {
     return (
         <div className={styles.preloader}>
-            <Spin />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
+            <Skeleton avatar paragraph={{ rows: 1 }} active />
         </div>
 
     )

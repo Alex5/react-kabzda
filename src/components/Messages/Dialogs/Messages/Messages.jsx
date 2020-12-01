@@ -9,12 +9,13 @@ import {Button} from "antd";
 import TextArea from "antd/es/input/TextArea";
 import Avatar from "antd/es/avatar";
 import UserOutlined from "@ant-design/icons/lib/icons/UserOutlined";
+import {Redirect} from "react-router";
 
 
 const Messages = (props) => {
 
     let messageElements = props.messagesArray.map(m => (
-        <MessageItem dispatch={props.dispatch} state={props.state} id={m.id} message={m.message} name={m.name} date={m.date} />))
+        <MessageItem dispatch={props.dispatch} key={m.id} state={props.state} id={m.id} message={m.message} name={m.name} date={m.date} />))
 
     let newMessage = React.createRef()
 
@@ -28,6 +29,7 @@ const Messages = (props) => {
         props.onMessageChange(messageText);
     }
 
+ if (!props.isAuth) return <Redirect to={`/login`}/>
 
     return (
         <div className={styles.chat}>

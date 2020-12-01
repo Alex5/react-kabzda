@@ -7,10 +7,12 @@ import {connect} from "react-redux";
 import {setProfileInfo} from "../../State/Redux/profile-reducer";
 import {withRouter} from "react-router";
 import {setAuthUserData} from "../../State/Redux/auth-reducer";
-import {profileApi} from "../../api/api";
+import {profileApi} from "../../Api/Api";
 
 
 class ProfileContainer extends React.Component {
+
+
 
     componentDidMount() {
 
@@ -23,6 +25,8 @@ class ProfileContainer extends React.Component {
             });
     }
 
+
+
     render() {
         return (
             <div className={styles.content}>
@@ -34,9 +38,9 @@ class ProfileContainer extends React.Component {
     }
 }
 
-
 let mapStateToProps = (state) => ({
-    profile: state.profileData.profile
+    profile: state.profileData.profile,
+    isAuth: state.authData.isAuth,
 })
 
 let withUrlDataContainerComponent = withRouter (ProfileContainer)
