@@ -1,20 +1,15 @@
 const axios = require('axios').default;
 
 const instance = axios.create({
-    baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     withCredentials: true,
+    baseURL: 'https://social-network.samuraijs.com/api/1.0/',
     headers: {
         'API-KEY': '24aa4446-b73e-4b0c-92e6-46cfd2e24249'
     }
 });
 
 
-export const profileApi = {
-    setProfileInfo(userId) {
-        return instance.get(`profile/${userId}`)
-            .then(response => response.data)
-    }
-}
+
 
 
 export const usersApi = {
@@ -31,8 +26,13 @@ export const usersApi = {
     follow(id) {
       return instance.post(`follow/${id}`)
           .then(response => response.data)
-    },
+    }
+}
 
+export const profileApi = {
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`);
+    },
 }
 
 export const authApi = {

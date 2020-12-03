@@ -1,19 +1,18 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Posts";
+import {Button, Input} from 'antd';
 
 
 const MyPosts = (props) => {
 
-    let newPostElements = React.createRef()
+    const {TextArea} = Input;
 
-    let onAddPost = () => {
-        props.addPost();
-    }
+    let newPostElements = React.createRef()
 
     let onPostChange = () => {
         let postText = newPostElements.current.value;
-        props.updateNewPostText(postText);
+        props.updateNewPostTextActionCreator(postText);
     };
 
     let postElements = props.postArray.map(p => (
@@ -23,12 +22,13 @@ const MyPosts = (props) => {
         <div className={styles.posts__area}>
             <div className={styles.posts__area__input}>
                 <h3>New posts</h3>
-                <textarea value={props.newPostText} onChange={onPostChange}
-                          className={styles.posts__area__textarea}
-                          ref={newPostElements}
-                          placeholder={'Enter post message'}
+                <TextArea
+                    rows={4}
+                    value={props.newPostText} onChange={onPostChange}
+                    ref={newPostElements}
+                    placeholder={'Enter post message'}
                 />
-                <button onClick={onAddPost}>Add Post</button>
+                <Button onClick={props.addPostActionCreator}>Add Post</Button>
             </div>
             <h3>My posts:</h3>
             {postElements}

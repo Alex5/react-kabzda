@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './Post.module.css'
+import {Avatar, Button, Card} from "antd";
+import Meta from "antd/lib/card/Meta";
 
 const Post = (props) => {
     return (
-        <div className={styles.item}>
+        /*<div className={styles.item}>
             <div className={styles.post__header}>
                 <img
                     src="https://img2.freepng.ru/20180523/tha/kisspng-businessperson-computer-icons-avatar-clip-art-lattice-5b0508dc6a3a10.0013931115270566044351.jpg"
@@ -19,7 +21,26 @@ const Post = (props) => {
                 <button>Reply</button>
                 <button>like: {props.like_counts}</button>
             </div>
-        </div>
+        </div>*/
+        <Card
+            style={{marginTop: 16}}
+            loading={``}
+
+            actions={[
+                  <Button>Like: {props.like_counts}</Button>,
+                  <Button>Dislike: {props.like_counts}</Button>
+            ]}
+        >
+
+            <Meta
+                avatar={
+                    <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
+                }
+                title={props.name}
+                description={props.message}
+            />
+
+        </Card>
     )
 }
 

@@ -4,34 +4,31 @@ import ProfileHeader from "./ProfileHeader/ProfileHeader";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import {connect} from "react-redux";
-import {setProfileInfo} from "../../State/Redux/profile-reducer";
+import {getUserProfile, setUserProfile} from "../../State/Redux/profile-reducer";
 import {withRouter} from "react-router";
 import {setAuthUserData} from "../../State/Redux/auth-reducer";
-import {profileApi} from "../../Api/Api";
+import {profileApi, usersApi} from "../../Api/Api";
+import {authWithRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
+import {AxiosInstance as axios} from "axios";
 
 
 class ProfileContainer extends React.Component {
 
-
-
     componentDidMount() {
-
-        let userId = this.props.match.params.userId
-
-        if (!userId) { userId = 12885}
-            profileApi.setProfileInfo(userId).then(data => {
-                this.props.setProfileInfo(data);
-                this.props.setAuthUserData(data);
-            });
+        let userId = this.props.match.params.userId;
+        if (!userId) {
+            userId = 1049;
+        }
+        this.props.getUserProfile(userId);
     }
-
 
 
     render() {
         return (
             <div className={styles.content}>
                 <ProfileHeader/>
-                <ProfileInfo {...this.props} profile={this.props.profile} key={this.props.userId}/>
+                <ProfileInfo profile={this.props.profile} key={this.props.userId}/>
                 <MyPostsContainer/>
             </div>
         )
@@ -40,9 +37,16 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.profileData.profile,
-    isAuth: state.authData.isAuth,
+    isAuth: state.authData.isAuth
 })
 
-let withUrlDataContainerComponent = withRouter (ProfileContainer)
+export default compose(
+    connect(mapStateToProps, {setAuthUserData, getUserProfile, setUserProfile}),
+    authWithRedirect,
+    withRouter)(ProfileContainer)
 
-export default connect(mapStateToProps, {setProfileInfo, setAuthUserData})(withUrlDataContainerComponent);
+/*const authWithRedirectWrapper = authWithRedirect(ProfileContainer)
+
+let withUrlDataContainerComponent = withRouter(authWithRedirectWrapper)
+
+export default connect(mapStateToProps, {setProfileInfo, setAuthUserData})(withUrlDataContainerComponent);*/

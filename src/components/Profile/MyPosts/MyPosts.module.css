@@ -16,7 +16,6 @@
     max-height: 500px;
     overflow: hidden;
     resize: vertical;
-    border-radius: 10px;
 }
 
 .posts__area__input textarea {

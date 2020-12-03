@@ -1,8 +1,6 @@
 import {authApi} from "../../Api/Api";
-import {toggleIsFetching} from "./users-reducer";
 
 const SET_USER_DATA = 'SET_USER_DATA';
-
 
 let initialState = {
     id: null,
@@ -26,17 +24,15 @@ const authReducer = (state = initialState, action) => {
 }
 
 
-export const setAuthUserData = (id, email, login) => ({type: SET_USER_DATA, data: {id, email, login}})
+export const setAuthUserData = (id,login, email) => ({type: SET_USER_DATA, data: {id,login, email}})
 
-export const setAuthThunkCreator = () => (dispatch) => {
+export const setAuthThunkCreator = (id,login, email) => (dispatch) => {
 
     authApi.checkAuth()
         .then(data => {
             if (data.resultCode === 0) {
-                let {id, email, login} = data;
-                dispatch(setAuthUserData(id, email, login));
+                dispatch(setAuthUserData(email, id,login));
             }
-            debugger
         });
 
 }

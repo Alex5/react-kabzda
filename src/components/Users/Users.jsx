@@ -16,11 +16,14 @@ const Users = (props) => {
                 dataSource={props.users}
                 renderItem={u => (
                     <List.Item>
+
                         <List.Item.Meta
                             key={u.id}
+
                             avatar={
-                                <NavLink  to={`/profile/${u.id}`}> {<Avatar size="large"
-                                                                           src={u.photos.small != null ? u.photos.small : userPhoto}/>}</NavLink>}
+                                <NavLink to={`/profile/${u.id}`}>
+                                    {<Avatar size="large" src={u.photos.small != null ? u.photos.small : userPhoto}/>}
+                                </NavLink>}
 
                             title={
                                 <NavLink to={`/profile/${u.id}`}>{u.name}</NavLink>}

@@ -5,8 +5,7 @@ import {setAuthThunkCreator} from "../../State/Redux/auth-reducer";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-        this.props.setAuthThunkCreator();
-        debugger
+        this.props.setAuthThunkCreator(this.props.login);
     }
 
     render() {

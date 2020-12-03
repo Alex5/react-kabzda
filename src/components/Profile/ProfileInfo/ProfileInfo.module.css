@@ -9,6 +9,10 @@ h1,h2,h3,h4,h5,p {
     flex-direction: column;
 }
 
+.content__hide {
+    display: none;
+}
+
 .profile__avatar img {
     height: 160px;
     width: 160px;

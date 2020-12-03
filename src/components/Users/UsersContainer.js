@@ -50,7 +50,6 @@ class UsersContainer extends React.Component {
                        totalUsersCount={this.props.totalUsersCount}
                        pageSize={this.props.pageSize}
                        isFetching={this.props.isFetching}
-                    // onUnfollowClick={this.onUnfollowClick}
                        toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
                        followingInProgress={this.props.followingInProgress}
                 />

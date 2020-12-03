@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './Navbar.module.css';
 import {NavLink} from "react-router-dom";
 import {Badge, Menu} from "antd";
-import Profile from "../Profile/Profile";
 
 
 const Navbar = () => {
@@ -11,8 +10,7 @@ const Navbar = () => {
 
         <Menu style={{marginTop: '70px'}} className={styles.nav}>
             <Menu.Item>
-                <NavLink activeClassName={styles.active} className={styles.item} to="/profile">Profile</NavLink>
-
+                <NavLink activeClassName={styles.active} className={styles.item} to="/profile/">Profile</NavLink>
             </Menu.Item>
 
             <Menu.Item>

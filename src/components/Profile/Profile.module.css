@@ -1,5 +1,10 @@
 .content {
+    display: flex;
+    flex-direction: column;
+}
 
+.content__hide {
+    display: none;
 }
 
 .item {

@@ -1,9 +1,6 @@
 import React from "react";
 import styles from "./Messages.module.css";
 import MessageItem from "./MessageItem/MessageItem";
-
-
-//antd trash
 import 'antd/dist/antd.css';
 import {Button} from "antd";
 import TextArea from "antd/es/input/TextArea";
@@ -28,8 +25,6 @@ const Messages = (props) => {
         let messageText = e.target.value;
         props.onMessageChange(messageText);
     }
-
- if (!props.isAuth) return <Redirect to={`/login`}/>
 
     return (
         <div className={styles.chat}>
