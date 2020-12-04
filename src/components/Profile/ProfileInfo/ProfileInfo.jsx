@@ -1,3 +1,4 @@
+/*
 import React from 'react';
 import styles from './ProfileInfo.module.css'
 import userPhoto from "../../../assets/images/userPhoto.png"
@@ -68,6 +69,28 @@ class ProfileInfo extends React.Component {
             </div>
         );
     }
+}
+
+export default ProfileInfo;*/
+
+import React from 'react';
+import s from './ProfileInfo.module.css';
+import Preloader from "../../common/preloader/Preloader";
+
+const ProfileInfo = (props) => {
+
+    if (!props.profile) {
+        return <Preloader />
+    }
+
+    return (
+        <div>
+            <div className={s.descriptionBlock}>
+                <img src={props.profile.photos.large} alt={'Profile avatar'}/>
+                ava + description
+            </div>
+        </div>
+    )
 }
 
 export default ProfileInfo;

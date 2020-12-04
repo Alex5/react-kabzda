@@ -1,7 +1,7 @@
 import {
     addNewMessage,
     updateNewMessageText,
-} from "../../../../State/Redux/dialogs-reducer";
+} from "../../../../Redux/dialogs-reducer";
 import Messages from "./Messages";
 import {connect} from "react-redux";
 import {compose} from "redux";

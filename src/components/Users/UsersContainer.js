@@ -6,14 +6,12 @@ import {
     setCurrentPage, setTotalUsersCount,
     setUsers, toggleIsFetching, toggleIsFollowingProgress,
     unfollow
-} from "../../State/Redux/users-reducer";
-
-import Preloader from "../common/preloader/Preloader";
+} from "../../Redux/users-reducer";
 
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize);
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
         /*this.props.toggleIsFetching(true)
         usersApi.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toggleIsFetching(false)
@@ -29,6 +27,7 @@ class UsersContainer extends React.Component {
 
     render() {
 
+
         let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
 
         let pages = [];
@@ -39,9 +38,8 @@ class UsersContainer extends React.Component {
 
 
         return (
-            <div>
-                {this.props.isFetching ? <Preloader isFetching={this.props.isFetching}/> : null}
 
+            <div>
                 <Users users={this.props.users}
                        follow={this.props.follow}
                        unfollow={this.props.unfollow}

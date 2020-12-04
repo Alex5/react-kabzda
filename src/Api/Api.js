@@ -8,7 +8,11 @@ const instance = axios.create({
     }
 });
 
-
+export const profileApi = {
+    getProfile(userId) {
+        return instance.get(`profile/${userId}`)
+    }
+}
 
 
 
@@ -27,12 +31,6 @@ export const usersApi = {
       return instance.post(`follow/${id}`)
           .then(response => response.data)
     }
-}
-
-export const profileApi = {
-    getProfile(userId) {
-        return instance.get(`profile/${userId}`);
-    },
 }
 
 export const authApi = {

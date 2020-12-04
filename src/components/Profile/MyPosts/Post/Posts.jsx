@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './Post.module.css'
 import {Avatar, Button, Card} from "antd";
 import Meta from "antd/lib/card/Meta";
 
@@ -37,9 +36,8 @@ const Post = (props) => {
                     <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"/>
                 }
                 title={props.name}
-                description={props.message}
             />
-
+            <p>{props.message}</p>
         </Card>
     )
 }

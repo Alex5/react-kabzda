@@ -3,7 +3,6 @@ import {Avatar, Button, List, Pagination, Spin} from "antd";
 import userPhoto from '../../assets/images/userPhoto.png'
 import {NavLink} from "react-router-dom";
 import {usersApi} from "../../Api/Api";
-import Preloader from "../common/preloader/Preloader";
 
 
 const Users = (props) => {
@@ -16,7 +15,6 @@ const Users = (props) => {
                 dataSource={props.users}
                 renderItem={u => (
                     <List.Item>
-
                         <List.Item.Meta
                             key={u.id}
 
