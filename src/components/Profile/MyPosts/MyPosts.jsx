@@ -1,7 +1,8 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Posts";
-import {Button} from 'antd';
+import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
 
 
 const MyPosts = (props) => {
@@ -28,7 +29,7 @@ const MyPosts = (props) => {
                     ref={newPostElements}
                     placeholder={'Enter post message'}
                 />
-                <Button onClick={onAddPost}>Add Post</Button>
+                <Button variant="contained" onClick={onAddPost}>Add post</Button>
             </div>
             <h3>My posts:</h3>
             <div>

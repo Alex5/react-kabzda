@@ -1,17 +1,24 @@
 import React from 'react';
 import Profile from "./Profile";
 import {connect} from "react-redux";
-import {getProfileThunkCreator} from "../../Redux/profile-reducer";
+import {
+    getProfileThunkCreator,
+    getStatusThunkCreator,
+    updateStatusThunkCreator
+} from "../../Redux/profile-reducer";
 import Preloader from "../common/preloader/Preloader";
 import {withRouter} from "react-router";
+import {compose} from "redux";
 
 class ProfileContainer extends React.Component {
 
     componentDidMount() {
-
         let userId = this.props.match.params.userId;
-
-        this.props.getProfileThunkCreator(userId)
+        if (!userId) {
+            userId = 12885;
+        }
+        this.props.getProfileThunkCreator(userId);
+        this.props.getStatusThunkCreator(userId);
     }
 
     render() {
@@ -19,15 +26,21 @@ class ProfileContainer extends React.Component {
             return <Preloader/>
         }
         return (
-            <Profile {...this.props} profile={this.props.profile}/>
+            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatusThunkCreator}/>
         )
     }
 }
 
 let mapStateToProps = (state) => ({
-    profile: state.profileData.profile
+    profile: state.profileData.profile,
+    status: state.profileData.status
 });
 
-const ProfileContainerWithRouter = withRouter(ProfileContainer)
-
-export default connect(mapStateToProps, {getProfileThunkCreator})(ProfileContainerWithRouter);
+export default compose(
+    connect(mapStateToProps, {
+        getProfileThunkCreator,
+        getStatusThunkCreator,
+        updateStatusThunkCreator
+    }),
+    withRouter
+)(ProfileContainer)
