@@ -8,6 +8,23 @@ const instance = axios.create({
     }
 });
 
+export const authApi = {
+    checkAuth () {
+        return (
+            instance.get(`auth/me`)
+                .then(response => response.data)
+        )
+    },
+    setAuthLogin (formData) {
+        return (
+            instance.post(`auth/login`, {formData: formData})
+                .then(response => response.data)
+
+        )
+
+    }
+}
+
 export const profileApi = {
     getProfile(userId) {
         return instance.get(`profile/${userId}`)
@@ -39,12 +56,5 @@ export const usersApi = {
     }
 }
 
-export const authApi = {
-    checkAuth () {
-        return (
-            instance.get(`auth/me`)
-                .then(response => response.data)
-        )
-    }
-}
+
 

@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import styles from './ProfileStatus.module.css'
 import Button from "@material-ui/core/Button";
 
 class ProfileStatus extends Component {
@@ -10,14 +9,14 @@ class ProfileStatus extends Component {
     }
 
     activateEditMode = () => {
-        this.setState( {
+        this.setState({
             editMode: true
-        } );
+        });
     }
     deactivateEditMode = () => {
-        this.setState( {
+        this.setState({
             editMode: false
-        } );
+        });
         this.props.updateStatus(this.state.status);
     }
 
@@ -28,9 +27,12 @@ class ProfileStatus extends Component {
     }
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        let a = this.state
-        let b = this.props
-        console.log('update 2')
+        debugger
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
     }
 
     render() {
@@ -39,7 +41,7 @@ class ProfileStatus extends Component {
             <div>
                 {!this.state.editMode &&
                 <div>
-                    <span onDoubleClick={ this.activateEditMode }>{this.props.status || "-------"}</span>
+                    <span onDoubleClick={this.activateEditMode}>{this.props.status || "-------"}</span>
                 </div>
                 }
                 {this.state.editMode &&

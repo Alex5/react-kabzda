@@ -1,85 +1,60 @@
 import React from "react";
-import {Form, Input, Button, Checkbox, Alert} from 'antd';
-import Title from "antd/lib/typography/Title";
+import {Field, reduxForm} from "redux-form";
+import {connect} from "react-redux";
+import {setLoginThunkCreator} from "../../Redux/auth-reducer";
+import {authWithRedirect} from "../../hoc/withAuthRedirect";
 
 
+class Login extends React.Component {
 
-const Login = () => {
-    const layout = {
-        labelCol: {
-            span: 8,
-        },
-        wrapperCol: {
-            span: 16,
-        },
-    };
-    const tailLayout = {
-        wrapperCol: {
-            offset: 8,
-            span: 16,
-        },
-    };
 
-    const onFinish = (values) => {
-        console.log('Success:', values);
-    };
+    onSubmit = (formData) => {
+        console.log(formData)
+        this.props.setLoginThunkCreator(formData)
+    }
 
-    const onFinishFailed = (errorInfo) => {
-        console.log('Failed:', errorInfo);
-    };
-
-    return (
-        <div style={{padding: '15px'}}>
-            <Title level={3}>Login to RSN</Title>
-            <Alert style={{marginBottom: '15px'}} message="Please log in or sign up to view this page." type="info" />
-            <Form
-                {...layout}
-                name="basic"
-                initialValues={{
-                    remember: true,
-                }}
-                onFinish={onFinish}
-                onFinishFailed={onFinishFailed}
-            >
-                <Form.Item
-                    label="Username"
-                    name="username"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your username!',
-                        },
-                    ]}
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    label="Password"
-                    name="password"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input your password!',
-                        },
-                    ]}
-                >
-                    <Input.Password />
-                </Form.Item>
-
-                <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-                    <Checkbox>Remember me</Checkbox>
-                </Form.Item>
-
-                <Form.Item {...tailLayout}>
-                    <Button type="primary" htmlType="submit">
-                        Submit
-                    </Button>
-                </Form.Item>
-            </Form>
-        </div>
-
-    );
+    render() {
+        return (
+            <div>
+                <div><h1>Login</h1></div>
+                <LoginReduxForm onSubmit={this.onSubmit}/>
+            </div>
+        );
+    }
 };
 
-export default Login;
+const LoginForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field name="email" component="input" type="text" placeholder={"Enter your email"}/>
+            </div>
+            <div>
+                <Field name="password" component="input" type="text" placeholder={"Enter your password"}/>
+            </div>
+            <div>
+                <Field name="rememberMe" component="input" type="checkbox" placeholder={"enter your password"}/>Remember
+                me
+            </div>
+            <div>
+                <button>Submit</button>
+            </div>
+        </form>
+    );
+}
+
+
+const LoginReduxForm = reduxForm({form: 'login'})(LoginForm)
+
+let mapStateToProps = (state) => {
+    return {
+        formData: {
+            email: state.authData.email,
+            login: state.authData.login,
+            rememberMe: state.authData.rememberMe
+        }
+    }
+}
+
+export default connect(mapStateToProps, {setLoginThunkCreator})(Login)
+
