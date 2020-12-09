@@ -19,7 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cbbfc705-3e52-427d-91e0-17dbc603ceb4" name="Default Changelist" comment="done profile status with local state and put request">
+    <list default="true" id="cbbfc705-3e52-427d-91e0-17dbc603ceb4" name="Default Changelist" comment="auth api + redux-form">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
@@ -27,8 +27,13 @@
       <change beforePath="$PROJECT_DIR$/src/Api/Api.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Api/Api.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Redux/auth-reducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/auth-reducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Redux/redux-store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/redux-store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/HeaderContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/Dialogs/Messages/Messages.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Dialogs/Messages/Messages.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Messages/Dialogs/Messages/MessagesContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Messages/Dialogs/Messages/MessagesContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileContainer.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Profile/ProfileStatus.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Profile/ProfileStatus.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Users/UsersContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Users/UsersContainer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +132,9 @@
       <workItem from="1607004829792" duration="12145000" />
       <workItem from="1607087869784" duration="7262000" />
       <workItem from="1607101292749" duration="22795000" />
-      <workItem from="1607243481030" duration="14679000" />
+      <workItem from="1607243481030" duration="28969000" />
+      <workItem from="1607441174885" duration="4542000" />
+      <workItem from="1607504219529" duration="1338000" />
     </task>
     <task id="LOCAL-00001" summary="fix profile, but delete layout">
       <created>1607097519987</created>
@@ -143,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607199692636</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="auth api + redux-form">
+      <created>1607288887687</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607288887687</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -175,7 +189,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="fix profile, but delete layout" />
     <MESSAGE value="done profile status with local state and put request" />
-    <option name="LAST_COMMIT_MESSAGE" value="done profile status with local state and put request" />
+    <MESSAGE value="auth api + redux-form" />
+    <option name="LAST_COMMIT_MESSAGE" value="auth api + redux-form" />
   </component>
   <component name="WindowStateProjectService">
     <state x="484" y="71" key="#Unnamed" timestamp="1606933875519">
@@ -210,22 +225,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="548" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1606934060087" />
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1607246341568">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom" timestamp="1607505292889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607246341568" />
-    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1607246341568">
+    <state width="1515" height="208" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1607505292889" />
+    <state width="1515" height="208" key="GridCell.Tab.0.center" timestamp="1607505292889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607246341568" />
-    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1607246341568">
+    <state width="1515" height="208" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1607505292889" />
+    <state width="1515" height="208" key="GridCell.Tab.0.left" timestamp="1607505292888">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607246341568" />
-    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1607246341568">
+    <state width="1515" height="208" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1607505292888" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right" timestamp="1607505292889">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607246341568" />
+    <state width="1515" height="208" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1607505292889" />
     <state x="504" y="133" key="RollbackChangesDialog" timestamp="1606933830033">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -234,17 +249,17 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1606933394780" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607199698211">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1607288893041">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607199698211" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1607288893041" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1607015726052">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1607015726052" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607271256117">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1607445859419">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607271256117" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1607445859419" />
   </component>
 </project>

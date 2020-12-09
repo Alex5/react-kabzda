@@ -22,7 +22,7 @@ let mapStateToProps = (state) => {
     return {
         messagesArray: state.messageData.messagesArray,
         newMessageText: state.messageData.newMessageText,
-        isAuth: state.authData.isAuth
+        isAuth: state.auth.isAuth
     }
 }
 
@@ -30,22 +30,3 @@ export default compose(
     connect(mapStateToProps, {addNewMessage, updateNewMessageText}),
     authWithRedirect
 )(MessagesContainer)
-
-/*let mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: () => {
-            dispatch(addNewMessage())
-        },
-        onMessageChange: (messageText) => {
-            dispatch(updateNewMessageTextActionCreator(messageText))
-        }
-    }
-}*/
-// export default compose(authWithRedirect, connect(mapStateToProps, mapDispatchToProps)(MessagesContainer))
-
-
-
-
-/*const authWithRedirectWrapper = authWithRedirect(MessagesContainer)
-
-export default connect(mapStateToProps, {addNewMessage, updateNewMessageText})(authWithRedirectWrapper)*/

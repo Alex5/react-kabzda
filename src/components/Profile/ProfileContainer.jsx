@@ -7,8 +7,8 @@ import {
     updateStatusThunkCreator
 } from "../../Redux/profile-reducer";
 import Preloader from "../common/preloader/Preloader";
-import {withRouter} from "react-router";
 import {compose} from "redux";
+import {withRouter} from "react-router";
 
 class ProfileContainer extends React.Component {
 
@@ -26,7 +26,8 @@ class ProfileContainer extends React.Component {
             return <Preloader/>
         }
         return (
-            <Profile {...this.props} profile={this.props.profile} status={this.props.status} updateStatus={this.props.updateStatusThunkCreator}/>
+            <Profile {...this.props} profile={this.props.profile} status={this.props.status}
+                     updateStatus={this.props.updateStatusThunkCreator}/>
         )
     }
 }

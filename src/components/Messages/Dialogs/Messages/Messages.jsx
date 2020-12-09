@@ -6,7 +6,6 @@ import {Button} from "antd";
 import TextArea from "antd/es/input/TextArea";
 import Avatar from "antd/es/avatar";
 import UserOutlined from "@ant-design/icons/lib/icons/UserOutlined";
-import {Redirect} from "react-router";
 
 
 const Messages = (props) => {
