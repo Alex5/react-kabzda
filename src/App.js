@@ -21,7 +21,7 @@ const App = (props) => {
                     <Route path={'/messages'} render={() => (
                         <MessagesArea state={props.state}/>)}/>
                     <Route path={`/profile/:userId?`}
-                           render={() => (<ProfileContainer />)}/>
+                           render={() => (<ProfileContainer/>)}/>
                     <Route path={'/news'}
                            render={() => (<News/>)}/>
                     <Route path={'/music'}

@@ -24,12 +24,17 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 45px;
-    width: 75px;
+    padding: 10px;
     color: white;
 }
 
+.login__area p {
+    margin-left: 10px}
+
+.login__area button {
+    color: black;
+}
+
 .login__area:hover {
-    cursor: pointer;
     background-color: rgba(255, 255, 255, 0.09);
 }
