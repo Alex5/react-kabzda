@@ -1,35 +1,38 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Posts";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
+import {Field, reduxForm} from "redux-form";
 
+
+const MyPostsForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <Field placeholder={"Enter you're message"} name={"message"} type={"text"} component={"textarea"}/>
+            <div>
+                <button>Post</button>
+            </div>
+        </form>
+    )
+}
+
+const MyPostsReduxForm =  reduxForm({form: 'profilePost'})(MyPostsForm)
 
 const MyPosts = (props) => {
-    let postElements = props.posts.map(p => (
-        <Post id={p.id} name={p.name} message={p.message} like_counts={p.like_counts} key={p.id}/>))
 
-    let newPostElements = React.createRef()
-
-    let onAddPost = () => {
-        props.addPostActionCreator();
+    const onSubmit = (formData) => {
+        props.addPostActionCreator(formData.message)
     }
 
-    let onPostChange = () => {
-        let text = newPostElements.current.value;
-        props.updateNewPostTextActionCreator(text);
-    };
+    let postElements = props.posts.map(p => (
+        <Post id={p.id} name={p.name} message={p.message} like_counts={p.likesCount} key={p.id}/>))
+
 
     return (
         <div className={styles.posts__area}>
             <div className={styles.posts__area__input}>
                 <h3>New posts</h3>
-                <textarea
-                    value={props.newPostText} onChange={onPostChange}
-                    ref={newPostElements}
-                    placeholder={'Enter post message'}
-                />
-                <Button variant="contained" onClick={onAddPost}>Add post</Button>
+                <MyPostsReduxForm onSubmit={onSubmit} />
+
             </div>
             <h3>My posts:</h3>
             <div>
@@ -38,6 +41,8 @@ const MyPosts = (props) => {
         </div>
     )
 }
+
+
 
 
 export default MyPosts;

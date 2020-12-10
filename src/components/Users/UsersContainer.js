@@ -8,7 +8,7 @@ import {
     unfollow
 } from "../../Redux/users-reducer";
 import {compose} from "redux";
-import {authWithRedirect} from "../../hoc/withAuthRedirect";
+import Preloader from "../common/preloader/Preloader";
 
 class UsersContainer extends React.Component {
 
@@ -23,7 +23,6 @@ class UsersContainer extends React.Component {
 
     render() {
 
-
         let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
 
         let pages = [];
@@ -32,21 +31,23 @@ class UsersContainer extends React.Component {
             pages.push(i)
         }
 
-
         return (
-
             <div>
-                <Users users={this.props.users}
-                       follow={this.props.follow}
-                       unfollow={this.props.unfollow}
-                       onPageChanged={this.onPageChanged}
-                       currentPage={this.props.currentPage}
-                       totalUsersCount={this.props.totalUsersCount}
-                       pageSize={this.props.pageSize}
-                       isFetching={this.props.isFetching}
-                       toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
-                       followingInProgress={this.props.followingInProgress}
-                />
+                {this.props.isFetching
+                    ? <Preloader/>
+                    : <Users users={this.props.users}
+                           follow={this.props.follow}
+                           unfollow={this.props.unfollow}
+                           onPageChanged={this.onPageChanged}
+                           currentPage={this.props.currentPage}
+                           totalUsersCount={this.props.totalUsersCount}
+                           pageSize={this.props.pageSize}
+                           isFetching={this.props.isFetching}
+                           toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
+                           followingInProgress={this.props.followingInProgress}
+
+                    />
+                }
             </div>
         )
 
@@ -67,9 +68,9 @@ let mapStateToProps = (state) => {
 
 export default compose(
     connect(mapStateToProps, {
-    follow, unfollow, setUsers, setCurrentPage,
-    setTotalUsersCount, toggleIsFetching, toggleIsFollowingProgress, getUsersThunkCreator
-})
+        follow, unfollow, setUsers, setCurrentPage,
+        setTotalUsersCount, toggleIsFetching, toggleIsFollowingProgress, getUsersThunkCreator
+    })
 )(UsersContainer)
 
 

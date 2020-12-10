@@ -24,10 +24,8 @@ const Post = (props) => {
         <Card
             style={{marginTop: 16}}
             loading={``}
-
             actions={[
                   <Button>Like: {props.like_counts}</Button>,
-                  <Button>Dislike: {props.like_counts}</Button>
             ]}
         >
 

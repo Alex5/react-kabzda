@@ -9,7 +9,9 @@ import UserOutlined from "@ant-design/icons/lib/icons/UserOutlined";
 export let IfLoggedIn = (props) => {
 
     const content = (
-        <div>
+        <div className={style.login__popup__content}>
+            <strong>{props.login}</strong>
+            <hr/>
             <p>Settings</p>
             <p>Help</p>
             <Button onClick={props.logout}>Logout</Button>
@@ -17,8 +19,9 @@ export let IfLoggedIn = (props) => {
     );
 
     return (
-        <Popover content={content} title={props.login}>
+        <Popover content={content}>
             <div className={style.login__area}>
+
                 <Avatar icon={<UserOutlined/>}/>
                 <p>{props.login}</p>
             </div>
@@ -48,12 +51,11 @@ const Header = (props) => {
             <div>
                 {props.isAuth
                     ? <IfLoggedIn login={props.login} logout={props.logout}/>
-                    : <IfNotLoggedIn />}
+                    : <IfNotLoggedIn/>}
             </div>
         </header>
     );
 }
-
 
 
 const mapStateToProps = (state) => {
@@ -61,7 +63,6 @@ const mapStateToProps = (state) => {
         profile: state.profileData.profile
     }
 }
-
 
 
 export default connect(mapStateToProps)(Header);
