@@ -1,16 +1,20 @@
 import React from 'react';
 import styles from './MyPosts.module.css'
 import Post from "./Post/Posts";
-import {Field, reduxForm} from "redux-form";
+import {Field, reduxForm, submit} from "redux-form";
+import {requiredField} from "../../../validation/SyncValidationForm";
+import {MyPostFormComponent} from "../../common/formsControls";
 
 
 const MyPostsForm = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
-            <Field placeholder={"Enter you're message"} name={"message"} type={"text"} component={"textarea"}/>
-            <div>
-                <button>Post</button>
-            </div>
+            <Field placeholder={"Enter you're message"}
+                   name={"message"} type={"text"}
+                   component={MyPostFormComponent}
+                   validate={requiredField}
+                   type={"TextArea"}
+            />
         </form>
     )
 }

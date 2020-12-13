@@ -1,5 +1,5 @@
 import React from 'react';
-import {Avatar, Button, List, Pagination, Spin} from "antd";
+import {Avatar, Button, Input, List, Pagination, Spin} from "antd";
 import userPhoto from '../../assets/images/userPhoto.png'
 import {NavLink} from "react-router-dom";
 import {usersApi} from "../../Api/Api";
@@ -9,7 +9,6 @@ const Users = (props) => {
 
     return (
         <div style={{padding: '15px'}}>
-
             <List
                 itemLayout="horizontal"
                 dataSource={props.users}

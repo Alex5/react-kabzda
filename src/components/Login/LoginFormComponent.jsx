@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 
 const LoginFormComponent = (props) => {
-    const {input, type, placeholder, meta}=props;
+    const {input, type, placeholder, meta} = props;
     return (
         <Fragment>
             <input {...props.input} type={props.type} placeholder={props.placeholder}/>

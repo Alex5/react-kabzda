@@ -10,7 +10,7 @@ let initialState = {
         {
             id: 1,
             name: "React Man",
-            message: "Hi form state!",
+            message: "Hi from state!",
             likesCount: 9
         }
     ],

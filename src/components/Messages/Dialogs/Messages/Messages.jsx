@@ -2,35 +2,41 @@ import React from "react";
 import styles from "./Messages.module.css";
 import MessageItem from "./MessageItem/MessageItem";
 import 'antd/dist/antd.css';
-import {Button} from "antd";
-import TextArea from "antd/es/input/TextArea";
 import Avatar from "antd/es/avatar";
 import UserOutlined from "@ant-design/icons/lib/icons/UserOutlined";
+import {Field, reduxForm} from "redux-form";
+
+const MessagesForm = (props) => {
+    return (
+            <form onSubmit={props.handleSubmit}>
+                <Field component={"textarea"} type={"TextArea"} name={"messages"} placeholder={"Enter you`re messages"}/>
+                <button>Send</button>
+            </form>
+    )
+}
+
+const ReduxMessagesForm = reduxForm({form: 'messages'})(MessagesForm)
+
 
 
 const Messages = (props) => {
 
+    const addNewMessage = (formData) => {
+        console.log(formData)
+        props.addNewMessage(formData.messages);
+    }
+
     let messageElements = props.messagesArray.map(m => (
-        <MessageItem dispatch={props.dispatch} key={m.id} state={props.state} id={m.id} message={m.message} name={m.name} date={m.date} />))
+        <MessageItem dispatch={props.dispatch} key={m.id} state={props.state} id={m.id} message={m.message}
+                     name={m.name} date={m.date}/>))
 
-    let newMessage = React.createRef()
-
-
-    let onAddMessage = () => {
-        props.addMessage();
-    }
-
-    let onMessageChange = (e) => {
-        let messageText = e.target.value;
-        props.onMessageChange(messageText);
-    }
 
     return (
         <div className={styles.chat}>
             <div className={styles.scrollbar__container}>
                 <div className={styles.scrollbar__message__header}>
                     <div className={styles.header__message__avatar}>
-                        <Avatar size="large" icon={<UserOutlined />} />
+                        <Avatar size="large" icon={<UserOutlined/>}/>
                         <div><h4>Anika Lyons</h4>
                             <div className="online">Online</div>
                         </div>
@@ -40,20 +46,13 @@ const Messages = (props) => {
                     {messageElements}
                 </div>
                 <div style={{display: 'flex', alignItems: 'center'}}>
-                    <TextArea
-                        onChange={onMessageChange} ref={newMessage}
-                        value={props.newMessageText}
-                        placeholder="Enter message here"
-                        autoSize={{minRows: 2, maxRows: 6}}
-                    />
-                    <Button onClick={onAddMessage} type="primary">Send</Button>
+                    <ReduxMessagesForm onSubmit={addNewMessage}/>
                 </div>
             </div>
         </div>
 
     )
 }
-
 
 
 export default Messages;
