@@ -4,9 +4,7 @@ import userPhoto from '../../assets/images/userPhoto.png'
 import {NavLink} from "react-router-dom";
 import {usersApi} from "../../Api/Api";
 
-
 const Users = (props) => {
-
     return (
         <div style={{padding: '15px'}}>
             <List
@@ -58,7 +56,6 @@ const Users = (props) => {
 
                 )}
             />
-
 
             <Pagination onChange={props.onPageChanged} defaultCurrent={props.currentPage} total={props.totalUsersCount}
                         defaultPageSize={props.pageSize}/>

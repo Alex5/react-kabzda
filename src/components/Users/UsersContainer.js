@@ -8,8 +8,14 @@ import {
     unfollow
 } from "../../Redux/users-reducer";
 import {compose} from "redux";
-import Preloader from "../common/preloader/Preloader";
-import {getCurrentPage, getIsFetching, getPageSize, getTotalUsersCount, getUsers} from "../../Selectors/Selectors";
+import {
+    getCurrentPage,
+    getFollowingInProgress,
+    getIsFetching,
+    getPageSize,
+    getTotalUsersCount,
+    getUsers
+} from "../../Selectors/Selectors";
 
 class UsersContainer extends React.Component {
 
@@ -21,7 +27,6 @@ class UsersContainer extends React.Component {
         this.props.getUsersThunkCreator(pageNumber);
     }
 
-
     render() {
 
         let pageCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize);
@@ -32,23 +37,22 @@ class UsersContainer extends React.Component {
             pages.push(i)
         }
 
+
+
         return (
             <div>
-                {this.props.isFetching
-                    ? <Preloader/>
-                    : <Users users={this.props.users}
-                           follow={this.props.follow}
-                           unfollow={this.props.unfollow}
-                           onPageChanged={this.onPageChanged}
-                           currentPage={this.props.currentPage}
-                           totalUsersCount={this.props.totalUsersCount}
-                           pageSize={this.props.pageSize}
-                           isFetching={this.props.isFetching}
-                           toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
-                           followingInProgress={this.props.followingInProgress}
+                <Users users={this.props.users}
+                       follow={this.props.follow}
+                       unfollow={this.props.unfollow}
+                       onPageChanged={this.onPageChanged}
+                       currentPage={this.props.currentPage}
+                       totalUsersCount={this.props.totalUsersCount}
+                       pageSize={this.props.pageSize}
+                       isFetching={this.props.isFetching}
+                       toggleIsFollowingProgress={this.props.toggleIsFollowingProgress}
+                       followingInProgress={this.props.followingInProgress}
 
-                    />
-                }
+                />
             </div>
         )
 
@@ -63,7 +67,7 @@ let mapStateToProps = (state) => {
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followingInProgress: state.usersPage.followingInProgress,
+        followingInProgress: getFollowingInProgress(state),
     }
 }
 
